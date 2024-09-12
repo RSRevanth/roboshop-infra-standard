@@ -11,34 +11,45 @@ pipeline {
                     cd 01-vpc
                     ls -ltr
                     pwd
-                    terraform init -reconfigure
+                    terraform init 
                 '''
             }
         }
-        stage('Plan') {
-            steps {
-                sh'''
-                    cd 01-vpc
-                    ls -ltr
-                    pwd
-                    terraform plan
-                '''
-            }
-        }
+        // stage('Plan') {
+        //     steps {
+        //         sh'''
+        //             cd 01-vpc
+        //             ls -ltr
+        //             pwd
+        //             terraform plan
+        //         '''
+        //     }
+        // }
         // stage('Approve') {
         //     steps{
         //         input "Shall I apply?"
         //     }
         // }
 
-        stage('Apply') {
+        // stage('Apply') {
+        //     steps{
+                
+        //         sh '''
+        //             pwd
+        //             ls -ltr
+        //             cd 01-vpc
+        //             terraform apply -auto-approve
+        //         '''
+        //     }
+        // }
+        stage('Destroy') {
             steps{
                 
                 sh '''
                     pwd
                     ls -ltr
                     cd 01-vpc
-                    terraform apply -auto-approve
+                    terraform destroy -auto-approve
                 '''
             }
         }
