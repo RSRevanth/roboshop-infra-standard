@@ -10,7 +10,7 @@ terraform {
     bucket   = "robo-remote-state1"
     key = "vpc"
     region = "us-east-1"
-    dynamodb_table = "roboshop-locking"
+    # dynamodb_table = "roboshop-locking"
   }
 }
 
